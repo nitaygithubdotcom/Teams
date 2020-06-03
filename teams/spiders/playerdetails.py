@@ -38,18 +38,33 @@ class PlayerSpider(scrapy.Spider):
         teams_k = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"])[6]/text()').get()
         teams_v = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"])[6]/text()').get()
         batting_career = response.xpath('(//div[@class="cb-plyr-tbl"]/div)[1]/text()').get()
-        test = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[1]/text()').get()
-        # length = len(response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/thead/tr/th)'))
-        # for i in range(1,length):
-        #    matchxp = '((//div[@class="cb-plyr-tbl"]/table)[1]/thead/tr/th)[{}]/text()'.format(i+1)
-        #    head = response.xpath(matchxp).get()
+        battest = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[1]/text()').get()
+        batodi = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[2]/text()').get()
+        bat20 = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[3]/text()').get()
+        batipl = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[4]/text()').get()
+        
 
         header = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/thead/tr/th)/text()').getall()
         testbody = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[1]/td/text()').getall()
         testdata = {}
         for i in range(len(header)):
             testdata.update({header[i]:testbody[i]})
-         
+
+        odibody = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[2]/td/text()').getall()
+        odidata = {}
+        for i in range(len(header)):
+            odidata.update({header[i]:odibody[i]})
+
+        t20body =  response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[3]/td/text()').getall()
+        t20data = {}
+        for i in range(len(header)):
+            t20data.update({header[i]:t20body[i]})
+
+        iplbody = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[4]/td/text()').getall()
+        ipldata = {}
+        for i in range(len(header)):
+            ipldata.update({header[i]:iplbody{i}})
+
         yield {
             'Name':name,
             'Team':team,
@@ -67,7 +82,13 @@ class PlayerSpider(scrapy.Spider):
             },
             careerinfo:{teams_k:teams_v},
             batting_career:{
-                test:
-                testdata
+                battest:
+                testdata,
+                batodi:
+                odidata,
+                batt20:
+                t20data,
+                batipl:
+                ipldata
             }
         }
