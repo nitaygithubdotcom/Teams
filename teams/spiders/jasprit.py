@@ -79,6 +79,9 @@ class PlayerSpider(scrapy.Spider):
             ballt20data.update({ballheader[i]:ballt20body[i]})
             ballipldata.update({ballheader[i]:balliplbody[i]})
 
+        src = response.xpath('//div[@class="cb-col cb-col-20 cb-col-rt"]/img/@src').get()
+        img_url = response.urljoin(src)    
+
         yield {
             'Name':name,
             'Team':team,
@@ -106,5 +109,6 @@ class PlayerSpider(scrapy.Spider):
                 ballodi:ballodidata,
                 ball20:ballt20data,
                 ballipl:ballipldata
-            }
+            },
+            'Img_Url':img_url
         }
