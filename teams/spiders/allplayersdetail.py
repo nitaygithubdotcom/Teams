@@ -95,7 +95,8 @@ class PlayerSpider(scrapy.Spider):
             ballipldata.update({ballheader[i]:balliplbody[i]})
          
         yield {
-            name:team,
+            'Name':name,
+            'Team':team,
             personalinfo:{
                 born_k:born_v,
                 birthplace_k:birthplace_v,
