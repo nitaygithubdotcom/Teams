@@ -41,7 +41,8 @@ class PlayerSpider(scrapy.Spider):
         
          
         yield {
-            name:team,
+            'Name':name,
+            'Team':team,
             personalinfo:{
                 born_k:born_v,
                 birthplace_k:birthplace_v,
