@@ -3,7 +3,7 @@ import scrapy
 
 
 class PlayerSpider(scrapy.Spider):
-    name = 'playerdetails'
+    name = 'jasprit'
     start_urls = ['https://www.cricbuzz.com/profiles/9311/jasprit-bumrah/']
 
     def parse(self, response):
