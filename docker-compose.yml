@@ -6,4 +6,4 @@ services:
         volumes: 
             - ./:/app/
         working_dir: /app/teams
-        command: ["scrapy","crawl","jasprit","-o","jasprit.csv"]
+        command: ["scrapy","crawl","allplayers","-o","allplayersdetail.csv"]
