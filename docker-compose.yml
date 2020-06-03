@@ -6,4 +6,4 @@ services:
         volumes: 
             - ./:/app/
         working_dir: /app/teams
-        command: ["scrapy","crawl","player2"]
+        command: ["scrapy","crawl","playerdetails"]
