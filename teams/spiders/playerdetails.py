@@ -63,7 +63,7 @@ class PlayerSpider(scrapy.Spider):
         iplbody = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[4]/td/text()').getall()
         ipldata = {}
         for i in range(len(header)):
-            ipldata.update({header[i]:iplbody{i}})
+            ipldata.update({header[i]:iplbody[i]})
 
         yield {
             'Name':name,
@@ -86,7 +86,7 @@ class PlayerSpider(scrapy.Spider):
                 testdata,
                 batodi:
                 odidata,
-                batt20:
+                bat20:
                 t20data,
                 batipl:
                 ipldata
