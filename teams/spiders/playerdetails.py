@@ -11,17 +11,17 @@ class PlayerSpider(scrapy.Spider):
         team = response.xpath('//div[@class="cb-col cb-col-80 cb-player-name-wrap"]/h3/text()').get()
         personalinfo = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div//div[@class="cb-font-16 text-bold"]/text()').get()).strip(' ')
         born_k = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"][1]/text()').get()
-        born_v = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][1]/text()').get()
+        born_v = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][1]/text()').get()).strip()
         birthplace_k = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"][2]/text()').get()
-        birthplace_v = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][2]/text()').get()
+        birthplace_v = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][2]/text()').get()).strip()
         height_k = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div//div[@class="cb-col cb-col-40 text-bold"])/text()').get()
-        height_v = (response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div//div[@class="cb-col cb-col-60"])/text()').get()).strip(' ')
+        height_v = (response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div//div[@class="cb-col cb-col-60"])/text()').get()).strip()
         role_k = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"][3]/text()').get()
-        role_v = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][3]/text()').get()
+        role_v = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][3]/text()').get()).strip()
         battingst_k = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"][4]/text()').get()
-        battingst_v = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][4]/text()').get()
+        battingst_v = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][4]/text()').get()).strip()
         ball_k = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"][5]/text()').get()
-        ball_v = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][5]/text()').get()
+        ball_v = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"][5]/text()').get()).strip()
         iccrank = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div//div[@class="cb-font-16 text-bold cb-lst-itm-sm cb-col cb-col-100 cb-sr-rev-label"])/text()').get()
         test = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-25 text-right cb-plyr-rank"])[1]/text()').get()
         odi = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-25 text-right cb-plyr-rank"])[2]/text()').get()
@@ -34,10 +34,10 @@ class PlayerSpider(scrapy.Spider):
         balltest = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-25 cb-plyr-rank text-right"])[4]/text()').get()
         ballodi = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-25 cb-plyr-rank text-right"])[5]/text()').get()
         ballt20 = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-25 cb-plyr-rank text-right"])[6]/text()').get()
-        careerinfo = response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-100 cb-font-16 text-bold cb-ttl-vts"]/text()').get()
-        teams_k = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"])[6]/text()').get()
-        teams_v = response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"])[6]/text()').get()
-        
+        careerinfo = (response.xpath('//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-100 cb-font-16 text-bold cb-ttl-vts"]/text()').get()).strip()
+        teams_k = (response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-40 text-bold cb-lst-itm-sm"])[6]/text()').get()).strip()
+        teams_v = (response.xpath('(//div[@class="cb-col cb-col-33 text-black"]/div/div[@class="cb-col cb-col-60 cb-lst-itm-sm"])[6]/text()').get()).strip()
+
         batting_career = response.xpath('(//div[@class="cb-plyr-tbl"]/div)[1]/text()').get()
         battest = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[1]/text()').get()
         batodi = response.xpath('((//div[@class="cb-plyr-tbl"])[1]/table/tbody/tr/td/strong)[2]/text()').get()
@@ -58,20 +58,6 @@ class PlayerSpider(scrapy.Spider):
             t20data.update({header[i]:t20body[i]})
             ipldata.update({header[i]:iplbody[i]})
 
-        # odibody = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[2]/td/text()').getall()
-        # odidata = {}
-        # for i in range(len(header)):
-        #     odidata.update({header[i]:odibody[i]})
-
-        # t20body =  response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[3]/td/text()').getall()
-        # t20data = {}
-        # for i in range(len(header)):
-        #     t20data.update({header[i]:t20body[i]})
-
-        # iplbody = response.xpath('((//div[@class="cb-plyr-tbl"]/table)[1]/tbody/tr)[4]/td/text()').getall()
-        # ipldata = {}
-        # for i in range(len(header)):
-        #     ipldata.update({header[i]:iplbody[i]})
 
         balling_career = response.xpath('(//div[@class="cb-plyr-tbl"]/div)[2]/text()').get()
         balltest = response.xpath('((//div[@class="cb-plyr-tbl"])[2]/table/tbody/tr/td/strong)[1]/text()').get()
