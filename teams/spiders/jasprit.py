@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-
+from PIL import Image
 
 class PlayerSpider(scrapy.Spider):
     name = 'jasprit'
