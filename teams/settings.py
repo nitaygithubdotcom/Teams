@@ -65,10 +65,13 @@ CONCURRENT_REQUESTS = 1
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'teams.pipelines.TeamsPipeline': 300,
+   'teams.pipelines.TeamsPipeline': 300
 }
-ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
-IMAGES_STORE = '/X/DataScrap/'
+# IMAGES_STORE = './'
+# IMAGES_URLS_FIELD = 'image_urls'
+# IMAGES_RESULT_FIELD = 'images'
+# IMAGES_EXPIRES = 30        #The default settings is 90 days.
+# MEDIA_ALLOW_REDIRECTS = True
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 AUTOTHROTTLE_ENABLED = True
