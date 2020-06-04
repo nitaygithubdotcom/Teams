@@ -2,8 +2,8 @@ version: "3.8"
 services: 
     scrapy:
         container_name: scrapy
-        image: scrapy:latest
+        image: nitaydockerhub/scrapy:0.1
         volumes: 
             - ./:/app/
         working_dir: /app/teams
-        command: ["scrapy","crawl","allplayersdetail","-o","allplayersdetail.csv"]
+        command: ["scrapy","crawl","allplayersdetail"]
