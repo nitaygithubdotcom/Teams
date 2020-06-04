@@ -8,3 +8,4 @@ services:
             - ./:/app/
         working_dir: /app/teams
         command: ["scrapy","crawl","allplayersdetail"]
+        
